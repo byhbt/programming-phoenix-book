@@ -8,7 +8,7 @@ defmodule ProgrammingPhoenix.AccountTest do
 
     import ProgrammingPhoenix.AccountFixtures
 
-    @invalid_attrs %{name: nil, username: nil}
+    @invalid_attrs %{name: nil, username: nil, password: nil}
 
     test "list_users/0 returns all users" do
       user = user_fixture()
@@ -21,7 +21,7 @@ defmodule ProgrammingPhoenix.AccountTest do
     end
 
     test "create_user/1 with valid data creates a user" do
-      valid_attrs = %{name: "some name", username: "some username"}
+      valid_attrs = %{name: "some name", username: "some username", password: nil}
 
       assert {:ok, %User{} = user} = Account.create_user(valid_attrs)
       assert user.name == "some name"

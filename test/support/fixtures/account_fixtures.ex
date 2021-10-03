@@ -12,7 +12,8 @@ defmodule ProgrammingPhoenix.AccountFixtures do
       attrs
       |> Enum.into(%{
         name: "some name",
-        username: "some username"
+        username: "some username",
+        password: "123"
       })
       |> ProgrammingPhoenix.Account.create_user()
 

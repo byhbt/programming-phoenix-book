@@ -8,5 +8,5 @@ if Mix.env() == :dev do
 
   %ProgrammingPhoenix.Account.User{}
   |> ProgrammingPhoenix.Account.User.changeset(sample_user)
-  |> ProgrammingPhoenix.Repo.insert
+  |> ProgrammingPhoenix.Repo.insert()
 end
