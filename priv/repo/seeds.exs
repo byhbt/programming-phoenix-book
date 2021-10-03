@@ -1,5 +1,5 @@
 if Mix.env() == :dev do
-  ProgrammingPhoenix.Repo.query("TRUNCATE users", [])
+  ProgrammingPhoenix.Repo.truncate(ProgrammingPhoenix.Account.User)
 
   sample_user = %{
     username: "thanh",
