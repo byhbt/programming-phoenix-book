@@ -1,11 +1,12 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ProgrammingPhoenix.Repo.insert!(%ProgrammingPhoenix.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+if Mix.env() == :dev do
+  ProgrammingPhoenix.Repo.query("TRUNCATE users", [])
+
+  sample_user = %{
+    username: "thanh",
+    name: "Thanh"
+  }
+
+  %ProgrammingPhoenix.Account.User{}
+  |> ProgrammingPhoenix.Account.User.changeset(sample_user)
+  |> ProgrammingPhoenix.Repo.insert
+end
