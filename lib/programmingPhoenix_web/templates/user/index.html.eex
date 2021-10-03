@@ -1,0 +1,7 @@
+<h1>Listing Users</h1>
+
+<%= for user <- @users do %>
+  <div>
+    <%= user.id %> - <%= user.name %>
+  </div>
+<% end %>
