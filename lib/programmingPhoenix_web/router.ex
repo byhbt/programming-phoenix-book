@@ -18,6 +18,11 @@ defmodule ProgrammingPhoenixWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
+
+    resources "/videos", VideoController
   end
 
   # Other scopes may use custom stacks.
