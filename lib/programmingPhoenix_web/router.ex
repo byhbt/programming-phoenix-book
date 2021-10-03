@@ -18,6 +18,8 @@ defmodule ProgrammingPhoenixWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/videos", VideoController
   end
 
   # Other scopes may use custom stacks.
