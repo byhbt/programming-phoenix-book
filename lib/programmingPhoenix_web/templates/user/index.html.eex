@@ -2,6 +2,7 @@
 
 <%= for user <- @users do %>
   <div>
-    <%= user.id %> - <%= user.name %>
+    <%= render("user.html", user: user) %>
+    <%= link "View detail", to: Routes.user_path(@conn, :show, user.id) %>
   </div>
 <% end %>
