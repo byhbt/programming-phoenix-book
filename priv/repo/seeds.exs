@@ -3,7 +3,7 @@ if Mix.env() == :dev do
 
   sample_user = %{
     username: "thanh",
-    name: "Thanh"
+    name: "Thanh Huynh"
   }
 
   %ProgrammingPhoenix.Account.User{}
