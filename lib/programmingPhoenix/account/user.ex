@@ -14,7 +14,7 @@ defmodule ProgrammingPhoenix.Account.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :username])
-    |> validate_required([:username])
+    |> validate_required([:name, :username])
     |> unique_constraint(:username)
   end
 end
