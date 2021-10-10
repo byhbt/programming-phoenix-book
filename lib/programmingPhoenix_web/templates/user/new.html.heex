@@ -1,4 +1,4 @@
-<h1>New User</h1>
+<h1>Registration</h1>
 
 <%= if @changeset.action do %>
   <div class="alert alert-danger">
@@ -15,6 +15,9 @@
     <%= text_input f, :username, placeholder: "Username" %>
     <%= error_tag f, :username %>
   </div>
-
+  <div>
+    <%= password_input f, :password, placeholder: "Password" %>
+    <%= error_tag f, :password %>
+  </div>
   <%= submit "Create user" %>
 <% end %>
