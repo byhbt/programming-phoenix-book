@@ -5,7 +5,7 @@ defmodule ProgrammingPhoenix.Account.User do
   schema "users" do
     field :name, :string
     field :username, :string
-    field :password, :string
+    field :password, :string, virtual: true
     field :password_hash, :string
 
     timestamps()
@@ -33,6 +33,7 @@ defmodule ProgrammingPhoenix.Account.User do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
         put_change(changeset, :password_hash, Pbkdf2.hash_pwd_salt(password))
+
       _ ->
         changeset
     end
