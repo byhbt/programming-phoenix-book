@@ -19,9 +19,10 @@ defmodule ProgrammingPhoenixWeb.Router do
 
     get "/", PageController, :index
 
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
+    # get "/users", UserController, :index
+    # get "/users/:id", UserController, :show
 
+    resources "/users", UserController
     resources "/videos", VideoController
   end
 
