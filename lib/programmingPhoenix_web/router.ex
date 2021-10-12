@@ -1,6 +1,8 @@
 defmodule ProgrammingPhoenixWeb.Router do
   use ProgrammingPhoenixWeb, :router
 
+  alias ProgrammingPhoenixWeb.Auth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,6 +10,7 @@ defmodule ProgrammingPhoenixWeb.Router do
     plug :put_root_layout, {ProgrammingPhoenixWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Auth
   end
 
   pipeline :api do
@@ -19,11 +22,9 @@ defmodule ProgrammingPhoenixWeb.Router do
 
     get "/", PageController, :index
 
-    # get "/users", UserController, :index
-    # get "/users/:id", UserController, :show
-
-    resources "/users", UserController
-    resources "/videos", VideoController
+    resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/videos", VideoController, only: [:index, :show, :new, :create]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
