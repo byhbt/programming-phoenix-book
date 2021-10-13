@@ -23,7 +23,7 @@ defmodule ProgrammingPhoenixWeb.Router do
     get "/", PageController, :index
 
     resources "/users", UserController, only: [:index, :show, :new, :create]
-    resources "/videos", VideoController, only: [:index, :show, :new, :create]
+    resources "/videos", VideoController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 

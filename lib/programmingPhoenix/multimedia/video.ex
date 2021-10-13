@@ -1,12 +1,18 @@
 defmodule ProgrammingPhoenix.Multimedia.Video do
   use Ecto.Schema
+
   import Ecto.Changeset
+
+  alias ProgrammingPhoenix.Account.User
+  alias ProgrammingPhoenix.Multimedia.Category
 
   schema "videos" do
     field :description, :string
     field :title, :string
     field :url, :string
-    field :user_id, :id
+
+    belongs_to :user, User
+    belongs_to :category, Category
 
     timestamps()
   end
