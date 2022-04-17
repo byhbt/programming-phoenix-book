@@ -16,7 +16,7 @@ defmodule ProgrammingPhoenix.Account.User do
     user
     |> cast(attrs, [:name, :username])
     |> validate_required([:name, :username])
-    |> validate_length(:username, min: 3, max: 20)
+    |> validate_length(:username, min: 3)
     |> unique_constraint(:username)
   end
 
